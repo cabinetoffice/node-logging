@@ -4,7 +4,7 @@
   "description": "node logging tool",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc dist/",
+    "build": "tsc",
     "start": "node dist/index.js",
     "lint": "eslint '{src,test}/**/*.ts'",
     "lint:fix": "eslint '{src,test}/**/*.ts' --fix",
