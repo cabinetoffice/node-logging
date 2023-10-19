@@ -1,13 +1,23 @@
 {
-  "name": "poc_prototypes",
+  "name": "poc_node_logging_tool",
   "version": "1.0.0",
   "description": "node logging tool",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "build": "tsc dist/",
+    "start": "node dist/index.js",
+    "lint": "eslint '{src,test}/**/*.ts'",
+    "lint:fix": "eslint '{src,test}/**/*.ts' --fix",
+    "prettier": "prettier --check .",
+    "prettier:fix": "prettier --write .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "engines": {
+    "npm": ">=10.0.0",
+    "node": ">=20.0.0"
+  },
+  "author": "X-CO Developers",
+  "license": "MIT",
   "devDependencies": {
     "@types/jest": "^29.5.6",
     "@types/node": "^20.8.7",
