@@ -11,7 +11,8 @@
     "prettier": "prettier --check .",
     "prettier:fix": "prettier --write .",
     "test": "jest",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "prepare": "husky install"
   },
   "engines": {
     "npm": ">=10.0.0",
