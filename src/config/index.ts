@@ -1,7 +1,6 @@
 import { AbstractConfigSetColors, AbstractConfigSetLevels } from 'winston/lib/winston/config';
 
-import { validateLevelEnvironmentValue } from '../utils/validateLevelEnvironmentValue';
-import { validateHumanEnvironmentValue } from '../utils/validateHumanEnvironmentValue';
+import { validateEnvironmentValue } from '../utils/validateEnvironmentValue';
 
 export const levels: AbstractConfigSetLevels = {
     error: 0,
@@ -15,10 +14,10 @@ export const colours: AbstractConfigSetColors = {
     debug: 'green'
 };
 
-const LOG_LEVEL = process.env['LOG_LEVEL'] || '';
-const HUMAN_LOG = process.env['HUMAN'] || '';
+const DEFAULT_HUMAN_LOG = 'false';
+const EXPECTED_HUMAN_LOG = 'true';
+const LOG_LEVEL_ENV = process.env['LOG_LEVEL'] || '';
+const HUMAN_LOG_ENV = process.env['HUMAN'] || '';
 
-export const config = {
-    level: validateLevelEnvironmentValue(LOG_LEVEL),
-    isHumanReadable: validateHumanEnvironmentValue(HUMAN_LOG)
-};
+export const LOG_LEVEL = validateEnvironmentValue(LOG_LEVEL_ENV, Object.keys(levels));
+export const HUMAN_LOG = validateEnvironmentValue(HUMAN_LOG_ENV, [EXPECTED_HUMAN_LOG], DEFAULT_HUMAN_LOG) === EXPECTED_HUMAN_LOG;
