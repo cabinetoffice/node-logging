@@ -1,13 +1,14 @@
 import { LogMetaData } from 'types';
 import { DateTime } from 'luxon';
 import { TransformableInfo } from 'logform';
+import { createdDateFormat } from '../config/createdDataFormat';
 import winston from 'winston';
 
 export const setHumanMessage = (namespace: string, info: TransformableInfo): LogMetaData => {
     return {
         level: info.level,
         message: info.message,
-        created: DateTime.now().toFormat('yyyy-MM-DDTHH:mm:ss.SSSZ'),
+        created: DateTime.now().toFormat(createdDateFormat),
         namespace: namespace,
         event: info.level,
         path: info.path,
