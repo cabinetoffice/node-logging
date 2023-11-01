@@ -1,4 +1,4 @@
-export const validateEnvironmentValue = (value: string, validValues: string[], defaultValue?: string | undefined) => {
+export const validateEnvironmentValue = (value: string, validValues: string[], defaultValue: string = ''): string => {
     const normalisedValue = value.toLowerCase();
 
     if (!defaultValue && !validValues.includes(normalisedValue)) {
