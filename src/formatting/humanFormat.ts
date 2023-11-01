@@ -6,7 +6,6 @@ import winston from 'winston';
 
 export const setHumanMessage = (namespace: string, info: TransformableInfo): LogMetaData => {
     return {
-        level: info.level,
         message: info.message,
         created: DateTime.now().toFormat(createdDateFormat),
         namespace: namespace,
@@ -23,7 +22,7 @@ export const formatHumanMessage = (info: TransformableInfo, namespace: string): 
     const sortedKeys = Object.keys(humanMessage).sort();
     const colourizer = winston.format.colorize();
     const formattedColourLog = colourizer.colorize(
-        humanMessage.level,
+        humanMessage.event,
         `${humanMessage.created} ${humanMessage.event}: ${humanMessage.message}`
     );
 
