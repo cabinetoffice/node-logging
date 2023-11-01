@@ -1,3 +1,5 @@
+import { AbstractConfigSetColors, AbstractConfigSetLevels } from 'winston/lib/winston/config';
+
 export interface LogMetaData {
     [index: string]: any;
     message: any;
@@ -8,4 +10,12 @@ export interface LogMetaData {
     namespace?: string;
     status?: number;
     duration?: number;
+}
+
+export interface LoggerOptions {
+    HUMAN_LOG: boolean;
+    namespace: string;
+    level: string;
+    levels: AbstractConfigSetLevels;
+    colours: AbstractConfigSetColors;
 }
