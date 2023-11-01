@@ -27,10 +27,7 @@ export const formatHumanMessage = (info: TransformableInfo, namespace: string): 
     );
 
     const formattedHumanLogs = sortedKeys.reduce((acc, key) => {
-        if (humanMessage[key]) {
-            return `${acc}\n -> ${key}: ${humanMessage[key]}`;
-        }
-        return acc;
+        return humanMessage[key] ? `${acc}\n -> ${key}: ${humanMessage[key]}` : acc;
     }, formattedColourLog);
     return formattedHumanLogs;
 };
