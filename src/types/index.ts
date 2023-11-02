@@ -13,7 +13,7 @@ export interface LogMetaData {
 }
 
 export interface LoggerOptions {
-    HUMAN_LOG: boolean;
+    humanReadable: string;
     namespace: string;
     level: string;
     levels: AbstractConfigSetLevels;

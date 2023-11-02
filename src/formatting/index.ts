@@ -3,10 +3,11 @@ import winston, { Logger } from 'winston';
 import { createHumanFormat } from './humanFormat';
 import { createJsonFormat } from './jsonFormat';
 import { LoggerOptions } from '../types';
+import { EXPECTED_HUMAN_LOG } from '../config';
 
 const setFormat = (options: LoggerOptions) => {
     return {
-        format: options.HUMAN_LOG ? createHumanFormat(options.namespace) : createJsonFormat(options.namespace)
+        format: options.humanReadable === EXPECTED_HUMAN_LOG ? createHumanFormat(options.namespace) : createJsonFormat(options.namespace)
     };
 };
 
