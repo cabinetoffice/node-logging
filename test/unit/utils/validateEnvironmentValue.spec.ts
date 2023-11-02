@@ -1,12 +1,12 @@
 import { describe, test, expect } from '@jest/globals';
 
 import { validateEnvironmentValue } from '../../../src/utils/validateEnvironmentValue';
-import { VALID_LEVEL_MOCK } from '../../mock/data.mock';
+import { MOCK_VALID_LEVEL } from '../../mock/data.mock';
 
 describe('validateEnvironmentValue test suites', () => {
     test('Should return a valid value', () => {
         const validValue = 'debug';
-        const validatedValue = validateEnvironmentValue(validValue, Object.keys(VALID_LEVEL_MOCK));
+        const validatedValue = validateEnvironmentValue(validValue, Object.keys(MOCK_VALID_LEVEL));
 
         expect(validatedValue).toEqual('debug');
     });
@@ -15,7 +15,7 @@ describe('validateEnvironmentValue test suites', () => {
         const invalidValue = 'invalid value';
 
         expect(() => {
-            validateEnvironmentValue(invalidValue, Object.keys(VALID_LEVEL_MOCK));
+            validateEnvironmentValue(invalidValue, Object.keys(MOCK_VALID_LEVEL));
         }).toThrow();
     });
 
@@ -23,14 +23,14 @@ describe('validateEnvironmentValue test suites', () => {
         const invalidValue = 'invalid value';
         const defaultValue = 'default value';
 
-        const validatedValue = validateEnvironmentValue(invalidValue, Object.keys(VALID_LEVEL_MOCK), defaultValue);
+        const validatedValue = validateEnvironmentValue(invalidValue, Object.keys(MOCK_VALID_LEVEL), defaultValue);
 
         expect(validatedValue).toEqual(defaultValue);
     });
 
     test('Should return value if value is not lowercase but still valid', () => {
         const uppercaseValue = 'ERROR';
-        const validatedValue = validateEnvironmentValue(uppercaseValue, Object.keys(VALID_LEVEL_MOCK));
+        const validatedValue = validateEnvironmentValue(uppercaseValue, Object.keys(MOCK_VALID_LEVEL));
 
         expect(validatedValue).toEqual('error');
     });

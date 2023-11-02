@@ -2,9 +2,8 @@ import { jest, beforeEach, afterEach, describe, test, expect } from '@jest/globa
 import winston from 'winston';
 
 import * as humanFormat from '../../../src/formatting/humanFormat';
-import { MOCK_INFO, MOCK_HUMAN_MESSAGE } from '../../mock/data';
+import { MOCK_INFO, MOCK_HUMAN_MESSAGE, MOCK_FORMATTED_HUMAN_MESSAGE } from '../../mock/data.mock';
 import { MOCK_NAMESPACE } from '../../mock/text.mock';
-import { MOCK_FORMATTED_HUMAN_MESSAGE } from '../../mock/data';
 
 describe('humanFormat test suites', () => {
     afterEach(() => {
@@ -52,7 +51,6 @@ describe('humanFormat test suites', () => {
             expect(formattedHumanLogs).not.toContain('duration');
         });
     });
-
     describe('createHumanFormat tests', () => {
         let spyWinstonPrintF;
         let spyFormatHumanMessage;

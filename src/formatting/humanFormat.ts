@@ -25,7 +25,6 @@ export const formatHumanMessage = (info: TransformableInfo, namespace: string): 
         humanMessage.event,
         `${humanMessage.created} ${humanMessage.event}: ${humanMessage.message}`
     );
-
     const formattedHumanLogs = sortedKeys.reduce((acc, key) => {
         return humanMessage[key] ? `${acc}\n -> ${key}: ${humanMessage[key]}` : acc;
     }, formattedColourLog);
