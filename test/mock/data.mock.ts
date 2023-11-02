@@ -24,7 +24,6 @@ export const MOCK_HUMAN_MESSAGE: LogMetaData = {
 };
 
 export const MOCK_JSON_OBJECT = {
-    context: undefined,
     created: MOCK_DATE,
     data: {
         duration: undefined,
@@ -50,7 +49,7 @@ export const MOCK_COLOURS: AbstractConfigSetColors = {
 };
 
 export const MOCK_LOGGER_OPTIONS: LoggerOptions = {
-    HUMAN_LOG: true || false,
+    humanReadable: '',
     namespace: MOCK_NAMESPACE,
     level: MOCK_INFO.level,
     levels: MOCK_VALID_LEVEL,

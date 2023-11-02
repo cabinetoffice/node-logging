@@ -1,5 +1,6 @@
 jest.mock('../../../src/formatting/humanFormat');
 jest.mock('../../../src/formatting/jsonFormat');
+jest.mock('../../../src/utils/validateEnvironmentValue');
 
 import { jest, beforeEach, afterEach, describe, test, expect } from '@jest/globals';
 import winston from 'winston';
@@ -20,17 +21,17 @@ describe('index format test suites', () => {
 
     describe('setFormat tests', () => {
         test('Should return an createHumanFormat when HUMAN_LOG is true', () => {
-            MOCK_LOGGER_OPTIONS.HUMAN_LOG = true;
+            const loggerOptions = { ...MOCK_LOGGER_OPTIONS, humanReadable: 'true' };
 
-            indexFormat.createFormat(MOCK_LOGGER_OPTIONS);
+            indexFormat.createFormat(loggerOptions);
 
             expect(mockCreateHumanFormat).toBeCalledTimes(1);
             expect(mockCreateJsonFormat).not.toBeCalled();
         });
         test('Should return an createJsonFormat when HUMAN_LOG is false', () => {
-            MOCK_LOGGER_OPTIONS.HUMAN_LOG = false;
+            const loggerOptions = { ...MOCK_LOGGER_OPTIONS, HUMAN_LOG: 'false' };
 
-            indexFormat.createFormat(MOCK_LOGGER_OPTIONS);
+            indexFormat.createFormat(loggerOptions);
 
             expect(mockCreateJsonFormat).toBeCalledTimes(1);
             expect(mockCreateHumanFormat).not.toBeCalled();
@@ -46,16 +47,12 @@ describe('index format test suites', () => {
             spyCreateLogger = jest.spyOn(winston, 'createLogger').mockImplementation(() => MOCK_LOGGER_OPTIONS as any);
         });
         test('Should check addColors is called', () => {
-            MOCK_LOGGER_OPTIONS.HUMAN_LOG = false;
-
             indexFormat.createFormat(MOCK_LOGGER_OPTIONS);
 
             expect(spyAddColours).toBeCalledTimes(1);
             expect(spyAddColours).toBeCalledWith(MOCK_COLOURS);
         });
         test('Should check createLogger is called', () => {
-            MOCK_LOGGER_OPTIONS.HUMAN_LOG = false;
-
             const logger = indexFormat.createFormat(MOCK_LOGGER_OPTIONS);
 
             expect(spyCreateLogger).toBeCalledTimes(1);
