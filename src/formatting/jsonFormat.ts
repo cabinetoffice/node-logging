@@ -8,7 +8,6 @@ export const setJsonMessage = (namespace: string, info: TransformableInfo) => {
         created: DateTime.now().toFormat(createdDateFormat),
         event: info.level,
         namespace: namespace,
-        context: info.context,
         data: {
             message: info.message,
             path: info.path,
