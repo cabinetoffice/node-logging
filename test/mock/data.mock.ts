@@ -1,9 +1,9 @@
-import winston from 'winston';
+import winston, { Logger } from 'winston';
 import { AbstractConfigSetLevels, AbstractConfigSetColors } from 'winston/lib/winston/config';
-
 import { LogMetaData, LoggerOptions } from '../../src/types';
 import { TransformableInfo } from 'logform';
 import { MOCK_NAMESPACE, MOCK_DATE } from './text.mock';
+import { Request } from 'express';
 
 export const MOCK_INFO: TransformableInfo = {
     level: 'info',
@@ -68,3 +68,16 @@ export const MOCK_FORMATTED_HUMAN_MESSAGE = `${winston.format
 }\n -> path: ${MOCK_HUMAN_MESSAGE.path}`;
 
 export const MOCK_JSON_STRINGIFIED = `"{\\"created\\":\\"${MOCK_JSON_OBJECT.created}\\",\\"data\\":{\\"message\\":\\"${MOCK_JSON_OBJECT.data.message}\\",\\"method\\":\\"${MOCK_JSON_OBJECT.data.method}\\",\\"path\\":\\"${MOCK_JSON_OBJECT.data.path}\\"},\\"event\\":\\"${MOCK_JSON_OBJECT.event}\\",\\"namespace\\":\\"${MOCK_JSON_OBJECT.namespace}\\"}"`;
+
+export const MOCK_REQUEST = {
+    params: { id: '1' },
+    body: { name: 'John Smith' },
+    method: 'GET',
+    path: '/example'
+} as unknown as Request;
+
+export const MOCK_LOGGER = {
+    debug: jest.fn(),
+    info: jest.fn(),
+    error: jest.fn()
+} as unknown as Logger;

@@ -21,6 +21,7 @@
   "author": "X-CO Developers",
   "license": "MIT",
   "devDependencies": {
+    "@types/express": "^4.17.20",
     "@types/jest": "^29.5.6",
     "@types/luxon": "^3.3.3",
     "@types/node": "^20.8.7",
