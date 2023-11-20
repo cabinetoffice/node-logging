@@ -1,4 +1,4 @@
-# POC Node Logging Prototype
+# Node Logging
 
 ## Overview and Scope
 
@@ -64,5 +64,4 @@ export const logger = (req: Request, _res: Response, next: NextFunction) => {
 
 ## ToDo
 
-- Create Repo template
 - Publishes the SDK on npm package registry
