@@ -1,8 +1,10 @@
 {
-  "name": "poc_node_logging_tool",
+  "name": "@co-digital/node-logging",
   "version": "1.0.0",
-  "description": "node logging tool",
-  "main": "dist/index.js",
+  "description": "A logging library for Node.JS applications in CO Digital.",
+  "homepage": "https://github.com/cabinetoffice/node-logging/blob/main/README.md",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
@@ -12,7 +14,13 @@
     "prettier:fix": "prettier --write .",
     "test": "jest",
     "coverage": "jest --coverage",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "prepublish": "[ ! -d node_modules ] && npm ci; tsc",
+    "postpublish": "rm -rf lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cabinetoffice/node-logging.git"
   },
   "engines": {
     "npm": ">=10.0.0",
@@ -37,5 +45,8 @@
   "dependencies": {
     "luxon": "^3.4.3",
     "winston": "^3.11.0"
-  }
+  },
+  "files": [
+    "./lib/**/*"
+  ]
 }
