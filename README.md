@@ -43,7 +43,7 @@ To integrate the module for testing purposes into your Node.js project, use the 
 
 ```typescript
 // logger.ts
-import { ApplicationLogger } from "logging/dist/ApplicationLogger";
+import { ApplicationLogger } from "logging/lib/ApplicationLogger";
 import { createLogger } from "logging";
 
 import { APPLICATION_NAME } from "../config";
