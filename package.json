@@ -2,7 +2,7 @@
   "name": "@co-digital/node-logging",
   "version": "1.0.0",
   "description": "A logging library for Node.JS applications in CO Digital.",
-  "homepage": "https://github.com/cabinetoffice/node-logging/blob/main/README.md",
+  "homepage": "https://github.com/cabinetoffice/node-logging#README.md",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
