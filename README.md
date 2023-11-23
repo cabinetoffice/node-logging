@@ -1,10 +1,16 @@
-# Node Logging
+# Logging
 
 ## Overview and Scope
 
 The logging is a dedicated component in the software project responsible for recording and managing log entries for NodeJS projects. It separates the concerns of logging from the core application code and offers several advantages like clean code, customisation configurations of levels, formats etc and it can can be easily integrated with log analysis tools and external services. It will give us a reusable and consistent format and structure throughout the application/s, and thanks to that we can improve performance monitoring and security auditing.
 
 The logger module integrates other best practice configurations and tools, such as Prettier for code formatting, a linter for code quality, and includes a Makefile for task automation, and other tools. These tools help maintain code quality, consistency, and automate routine development tasks.
+
+## Installing
+
+```sh
+npm i @co-digital/logging
+```
 
 ## Files Structure
 
@@ -38,13 +44,16 @@ It also provides methods for request-based logging at each level, such as `debug
 
 ## Integration
 
-To integrate the module for testing purposes into your Node.js project, use the following command:
-`npm install username/repo#branchName --save`. Once it is installed, you need to create a `logger.ts` utility, as shown below, and use it when required. Obviously we are going to use the singleton pattern.
+```sh
+npm i @co-digital/logging
+```
+
+Once it is installed, you need to create a `logger.ts` utility, as shown below, and use it when required. Obviously we are going to use the singleton pattern.
 
 ```typescript
 // logger.ts
-import { ApplicationLogger } from "logging/lib/ApplicationLogger";
-import { createLogger } from "logging";
+import { ApplicationLogger } from "@co-digital/logging/lib/ApplicationLogger";
+import { createLogger } from "@co-digital/logging";
 
 import { APPLICATION_NAME } from "../config";
 
@@ -62,6 +71,17 @@ export const logger = (req: Request, _res: Response, next: NextFunction) => {
 };
 ```
 
-## ToDo
+## Contributing
 
-- Publishes the SDK on npm package registry
+```sh
+## Set Node/NPM env
+nvm use
+
+## Installing & Building
+make build
+
+## Testing & Coverage
+make test
+#or
+make coverage
+```
