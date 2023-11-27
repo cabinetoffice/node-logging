@@ -12,6 +12,15 @@ The logger module integrates other best practice configurations and tools, such 
 npm i @co-digital/logging
 ```
 
+### Config variables
+
+Following configs will need to be added as environment variables to the application
+
+Key             |  Description               | Example Value            |  Required |
+----------------|--------------------------- |------------------------- |---------- |
+LOG_LEVEL       | Logging levels        | `info` (Log only if info.level is less than or equal to this level)        | True |
+HUMAN           | Formatting messages form (default JSON) | `true` (Enable human formatting for log messages)        | False |
+
 ## Files Structure
 
 Directory Path | Description
