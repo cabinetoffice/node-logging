@@ -4,7 +4,7 @@ import winston from 'winston';
 import * as jsonFormat from '../../../src/formatting/jsonFormat';
 
 import { MOCK_INFO, MOCK_JSON_OBJECT, MOCK_JSON_STRINGIFIED } from '../../mock/data.mock';
-import { MOCK_NAMESPACE } from '../../mock/text.mock';
+import { MOCK_DATE, MOCK_NAMESPACE } from '../../mock/text.mock';
 
 describe('jsonFormat test suites', () => {
     afterEach(() => {
@@ -13,7 +13,7 @@ describe('jsonFormat test suites', () => {
 
     describe('setJsonMessage Test', () => {
         beforeEach(() => {
-            jest.useFakeTimers().setSystemTime();
+            jest.useFakeTimers().setSystemTime(new Date(MOCK_DATE));
         });
         afterEach(() => {
             jest.useRealTimers();
