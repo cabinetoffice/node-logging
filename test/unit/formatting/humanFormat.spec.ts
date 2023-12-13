@@ -3,7 +3,7 @@ import winston from 'winston';
 
 import * as humanFormat from '../../../src/formatting/humanFormat';
 import { MOCK_INFO, MOCK_HUMAN_MESSAGE, MOCK_FORMATTED_HUMAN_MESSAGE } from '../../mock/data.mock';
-import { MOCK_NAMESPACE } from '../../mock/text.mock';
+import { MOCK_DATE, MOCK_NAMESPACE } from '../../mock/text.mock';
 
 describe('humanFormat test suites', () => {
     afterEach(() => {
@@ -12,7 +12,7 @@ describe('humanFormat test suites', () => {
 
     describe('setHumanMessage test', () => {
         beforeEach(() => {
-            jest.useFakeTimers().setSystemTime();
+            jest.useFakeTimers().setSystemTime(new Date(MOCK_DATE));
         });
 
         afterEach(() => {
