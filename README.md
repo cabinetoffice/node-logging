@@ -1,10 +1,13 @@
 # Logging
 
+![npm](https://img.shields.io/npm/v/%40co-digital%2Flogging)
+![Static Badge](https://img.shields.io/badge/test_coverage-%E2%89%A595%25-green)
+
 ## Overview and Scope
 
 The logging is a dedicated component in the software project responsible for recording and managing log entries for NodeJS projects. It separates the concerns of logging from the core application code and offers several advantages like clean code, customisation configurations of levels, formats etc and it can can be easily integrated with log analysis tools and external services. It will give us a reusable and consistent format and structure throughout the application/s, and thanks to that we can improve performance monitoring and security auditing.
 
-The logger module integrates other best practice configurations and tools, such as Prettier for code formatting, a linter for code quality, and includes a Makefile for task automation, and other tools. These tools help maintain code quality, consistency, and automate routine development tasks.
+The logger module integrates other best practice configurations and tools, a linter for code quality, and includes a Makefile for task automation, and other tools. These tools help maintain code quality, consistency, and automate routine development tasks.
 
 ## Installing
 
